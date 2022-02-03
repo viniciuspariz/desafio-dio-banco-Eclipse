@@ -19,8 +19,15 @@ public abstract class Conta implements interfaceConta {
 
 	@Override
 	public void sacar(double valor) {
+		
+		// Implementar verificador de saldo antes de realizar o saque.
+		
+		boolean saldoSuficiente = this.saldo-=valor>=0;
 
-		this.saldo -= valor;
+	//	if (saldoSuficiente)
+			this.saldo -= valor;
+	//	else
+	//		System.out.println(String.format("Saldo insuficiente para saque. Seu saldo é de R$ %.2f", this.saldo);
 
 	}
 
@@ -33,7 +40,10 @@ public abstract class Conta implements interfaceConta {
 
 	@Override
 	public void transferir(double valor, Conta contaDestino) {
-
+		
+		// Implementar verificador de saldo antes de realizar o saque.
+		// Talvez criar uma nova rotina que retorne o valor do saque.
+		
 		this.sacar(valor);
 		contaDestino.depositar(valor);
 
